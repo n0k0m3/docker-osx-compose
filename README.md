@@ -18,17 +18,7 @@ sudo cp <mac_hdd_ng_img_PATH> .
 ```
 
 **Configuration:**
-- (Optional) Create/edit `.env` file with following variables for iMessage and rescale resolution:
-```
-GENERATE_SPECIFIC=true
-DEVICE_MODEL=<DEVICE_MODEL>
-SERIAL=<SERIAL>
-BOARD_SERIAL=<BOARD_SERIAL>
-UUID=<UUID>
-MAC_ADDRESS=<MAC_ADDRESS>
-WIDTH="1280"
-HEIGHT="720"
-```
+- (Optional) Create an `.env` file following the template in `.env.template`
 
 **Subsequent runs:**
 - Run `docker-compose.yml` to start the docker-OSX
