@@ -1,0 +1,16 @@
+# docker compose install macos monterey
+version: '3.8'
+
+services:
+  docker-osx:
+    container_name: macosinstall
+    privileged: true
+    devices:
+      - /dev/kvm
+    environment:
+      - DISPLAY=${DISPLAY:-:0.0}
+    ports:
+      - '50922:10022'
+    volumes:
+      - '/tmp/.X11-unix:/tmp/.X11-unix'
+    image: 'sickcodes/docker-osx:${TAG:-monterey}'

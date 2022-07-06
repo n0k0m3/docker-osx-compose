@@ -1,0 +1,31 @@
+# docker compose
+version: '3.8'
+
+services:
+  docker-osx:
+    container_name: macos
+    privileged: true
+    restart: unless-stopped
+    devices:
+      - /dev/kvm
+    environment:
+      - DISPLAY=${DISPLAY:-:0.0}
+      - NOPICKER=true
+      - GENERATE_SPECIFIC=${GENERATE_SPECIFIC-false}
+      - GENERATE_UNIQUE=${GENERATE_UNIQUE-true}
+      - DEVICE_MODEL=${DEVICE_MODEL}
+      - SERIAL=${SERIAL}
+      - BOARD_SERIAL=${BOARD_SERIAL}
+      - UUID=${UUID}
+      - MAC_ADDRESS=${MAC_ADDRESS}
+      - WIDTH=${WIDTH:-1920}
+      - HEIGHT=${HEIGHT:-1080}
+      - EXTRA=${EXTRA}
+      - MASTER_PLIST_URL=https://raw.githubusercontent.com/sickcodes/Docker-OSX/master/custom/config-nopicker-custom.plist
+    ports:
+      - '5999:5999'
+      - '50922:10022'
+    volumes:
+      - './mac_hdd_ng.img:/image'
+      - '/tmp/.X11-unix:/tmp/.X11-unix'
+    image: 'sickcodes/docker-osx:naked'
