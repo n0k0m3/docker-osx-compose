@@ -19,6 +19,7 @@ sudo cp <mac_hdd_ng_img_PATH> .
 
 **Configuration:**
 - (Optional) Create an `.env` file following the template in `.env.template`
+- (Optional) `docker-compose` supports `docker-compose.override.yml` file for additional config. Read [here](https://docs.docker.com/compose/extends/#adding-and-overriding-configuration) on how to add or override configuration in the mail compose file.
 
 **Subsequent runs:**
 - Run `docker-compose.yml` to start the docker-OSX
